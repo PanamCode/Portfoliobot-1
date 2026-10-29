@@ -15,7 +15,7 @@ import gspread
 # На bothost задай переменные: BOT_TOKEN, ADMIN_ID, SPREADSHEET_ID, GOOGLE_CREDENTIALS
 BOT_TOKEN = os.environ.get("9078968710:AAHhHvRy5nrASMCi0D11g4bc7QJtyqKCrBQ")
 ADMIN_ID = int(os.environ.get("8738748123", "0"))
-SPREADSHEET_ID = (os.environ.get("SPREADSHEET_ID") or "").strip()
+SPREADSHEET_ID = (os.environ.get("1gc1ul4aCTc35EXGxmI9oX05DHfRwqnVVsefxucLgv4M") or "").strip()
 # ====================================================================================
 
 logging.basicConfig(level=logging.INFO)
