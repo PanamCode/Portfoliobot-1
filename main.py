@@ -10,13 +10,12 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 
 # ================= НАСТРОЙКИ (всё берётся из переменных окружения) =================
 # На bothost задай переменные: BOT_TOKEN, ADMIN_ID, SPREADSHEET_ID, GOOGLE_CREDENTIALS
 BOT_TOKEN = os.environ.get("9078968710:AAHhHvRy5nrASMCi0D11g4bc7QJtyqKCrBQ")
 ADMIN_ID = int(os.environ.get("8738748123", "0"))
-SPREADSHEET_ID = (os.environ.get("1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M") or "").strip()
+SPREADSHEET_ID = (os.environ.get("SPREADSHEET_ID") or "").strip()
 # ====================================================================================
 
 logging.basicConfig(level=logging.INFO)
@@ -37,12 +36,7 @@ try:
         raise ValueError("Переменная SPREADSHEET_ID не задана!")
 
     creds_dict = json.loads(creds_json)
-    scope = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive",
-    ]
-    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
-    client = gspread.authorize(creds)
+    client = gspread.service_account_from_dict(creds_dict)
 
     sheet = client.open_by_key(SPREADSHEET_ID).sheet1
     print(f"✅ Подключено к таблице: {sheet.spreadsheet.title}")
