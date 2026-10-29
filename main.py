@@ -14,7 +14,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # ================= НАСТРОЙКИ =================
 BOT_TOKEN = '9078968710:AAHhHvRy5nrASMCi0D11g4bc7QJtyqKCrBQ'
 ADMIN_ID = 8738748123  # Твой ID в Телеграме (куда будут приходить уведомления)
-SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1Jgc1uI4aCt35EXGxmI9oX05DHfRwqnWVsexfucLgv4M/edit"
+SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M/edit?gid=0#gid=0"
 # ============================================
 
 # Настройка логов (чтобы видеть ошибки, если что-то упадет)
