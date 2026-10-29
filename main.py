@@ -37,7 +37,7 @@ try:
     client = gspread.authorize(creds)
     
     # Открываем таблицу по ссылке
-    sheet = client.open_by_url(SPREADSHEET_URL).sheet1
+    sheet = client.open_by_key("1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M").sheet1
     print("✅ Успешное подключение к Google Таблицам!")
 except Exception as e:
     print(f"❌ Ошибка подключения к Google: {e}")
