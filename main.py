@@ -36,7 +36,7 @@ try:
     client = gspread.authorize(creds)
     
     # ЖЕСТКО ВШИВАЕМ ID ТАБЛИЦЫ
-    sheet = client.open_by_key("1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M").sheet1
+    sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M/edit?gid=0#gid=0").sheet1
 # Машина состояний (для пошагового заполнения)
 class Form(StatesGroup):
     name = State()
