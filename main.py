@@ -26,7 +26,6 @@ dp = Dispatcher(storage=MemoryStorage())
 
 # Подключение к Google Таблицам
 try:
-    # Мы берем ключ из переменной окружения (на хостинге ты ее вставишь)
     creds_json = os.environ.get("GOOGLE_CREDENTIALS")
     if not creds_json:
         raise ValueError("Переменная GOOGLE_CREDENTIALS не найдена!")
@@ -36,13 +35,8 @@ try:
     creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     client = gspread.authorize(creds)
     
-    # Открываем таблицу по ссылке
+    # ЖЕСТКО ВШИВАЕМ ID ТАБЛИЦЫ
     sheet = client.open_by_key("1gc1ul4aCTc35EXGxml9oX05DHfRwqnVVsefxucLgv4M").sheet1
-    print("✅ Успешное подключение к Google Таблицам!")
-except Exception as e:
-    print(f"❌ Ошибка подключения к Google: {e}")
-    sheet = None
-
 # Машина состояний (для пошагового заполнения)
 class Form(StatesGroup):
     name = State()
